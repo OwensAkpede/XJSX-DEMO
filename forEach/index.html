@@ -63,22 +63,6 @@
      <noscript>
          javascript was disabled 
      </noscript>
-    <?use-template: "zapp"?>
-   <div list>
-  
-  <div a>
-    <?for-each: [1, 2, 3, 4]; value, index?>
-       <?if: value%2 === 1 ?><?print: value?><?end?>
-    <?break?>
-  </div>
- 
-  <div b>
-    <?continue?>
-       <?if: value%2 === 0?><?print: value?><?end?>
-    <?break?>
-  </div>
-    <?end?>
-    
-</div>
+    <?use-template: "app"?>
   </body>
 </html>
