@@ -1,40 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="../home/dist/semantic.min.css" type="text/css" media="all" />
-    <style type="text/css" media="all">
-      body{
-        padding: 1em;
-      }
-    </style>
-    <script src="xjsx.alpha.0.0.4.js" type="text/javascript" charset="utf-8"></script>
-    <script type="text/javascript" charset="utf-8">
-      var f=1
-      var data=[
-        {type:'folder',name:'folder-'+f++,size:0},
-        {type:'folder',name:'folder-'+f++,size:0},
-        {type:'folder',name:'folder-'+f++,size:0},
-        {type:'folder',name:'folder-'+f++,size:0},
-       
-        {type:'file',name:'file.txt',size: Math.floor(Math.random()*100)},
-        {type:'file',name:'file.txt',size: Math.floor(Math.random()*100)},
-        {type:'file',name:'file.txt',size: Math.floor(Math.random()*100)},
-        {type:'file',name:'file.txt',size: Math.floor(Math.random()*100)},
-        {type:'file',name:'file.txt',size: Math.floor(Math.random()*100)},
-        
-        {type:'folder',name:'folder-'+f++,size: 0},
-        
-        ]
-    </script>
-  </head>
-  <body>
-    
-    <?for-each: data; data?>
-    <?break?>
+    <template id=app>
+    <?for-each: data; data?><?break?>
       <h2>Folders</h2>
       <div folder class="ui relaxed divided list">
     <?continue?>
-    
       <?if: data.type==="folder"?>
         <div class="item">
           <i class="large folder middle aligned icon"></i>
@@ -44,13 +15,11 @@
           </div>
         </div>
       <?end?>
-      
     <?break?>
       </div>
       <h2>Files</h2>
       <div file class="ui relaxed divided list">
     <?continue?>
-    
       <?if: data.type==="file"?>
        <div class="item">
           <i class="large file middle aligned icon"></i>
@@ -60,13 +29,56 @@
           </div>
         </div>
       <?end?>
-      
     <?break?>
     </div>
     <?end?>
-    
-
+    </template>
+    <link rel="stylesheet" href="../home/dist/semantic.min.css" type="text/css" media="all" />
+    <style type="text/css" media="all">
+      body{padding: 1em;}
+    </style>
+    <script src="xjsx.alpha.0.0.4.js" type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript" charset="utf-8">
+     var fd=1,
+      fl=1,
+      data=[
+        {type:'folder',name:`Folder (${fd++})`,size:0},
+        {type:'folder',name:`Folder (${fd++})`,size:0},
+        {type:'folder',name:`Folder (${fd++})`,size:0},
+        {type:'folder',name:`Folder (${fd++})`,size:0},
+        {type:'folder',name:`Folder (${fd++})`,size:0},
+
+        {type:'file',name:`file  (${fl++}).txt`,size: Math.floor(Math.random()*100)},
+        {type:'file',name:`file  (${fl++}).txt`,size: Math.floor(Math.random()*100)},
+        {type:'file',name:`file  (${fl++}).txt`,size: Math.floor(Math.random()*100)},
+        {type:'file',name:`file  (${fl++}).txt`,size: Math.floor(Math.random()*100)},
+        {type:'file',name:`file  (${fl++}).txt`,size: Math.floor(Math.random()*100)},
+
+        {type:'folder',name:'last folder',size: 0},
+        
+        ]
     </script>
+  </head>
+  <body>
+     <noscript>
+         javascript was disabled 
+     </noscript>
+    <?use-template: "zapp"?>
+   <div list>
+  
+  <div a>
+    <?for-each: [1, 2, 3, 4]; value, index?>
+       <?if: value%2 === 1 ?><?print: value?><?end?>
+    <?break?>
+  </div>
+ 
+  <div b>
+    <?continue?>
+       <?if: value%2 === 0?><?print: value?><?end?>
+    <?break?>
+  </div>
+    <?end?>
+    
+</div>
   </body>
 </html>
