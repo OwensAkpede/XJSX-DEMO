@@ -33,8 +33,10 @@
     </div>
     <?end?>
     </template>
-    <link rel="stylesheet" href="../home/dist/semantic.min.css" type="text/css" media="all" />
-    <style type="text/css" media="all">
+   <link rel="stylesheet" href="../home/dist/components/reset.min.css" />
+    <link rel="stylesheet" href="../home/dist/components/list.min.css" />
+
+     <style type="text/css" media="all">
       body{padding: 1em;}
     </style>
     <script src="xjsx.alpha.0.0.4.js" type="text/javascript" charset="utf-8"></script>
@@ -60,9 +62,15 @@
     </script>
   </head>
   <body>
-     <noscript>
-         javascript was disabled 
-     </noscript>
+ 
+         <!--- javaScript was probably disabled -->
+    <?if: !window?>
+      <h1>Oops, Error</h1>
+      <div class="ui message error">
+      <p>looks like XJSX was not loaded...</p>
+      </div>
+    <?end?>
+    
     <?use-template: "app"?>
   </body>
 </html>

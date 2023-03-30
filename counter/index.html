@@ -1,0 +1,98 @@
+<!DOCTYPE>
+<html lang="en" xjsx>
+  <head>
+    <meta charset="UTF-8" />
+     <link rel="stylesheet" href="../home/dist/components/reset.min.css" />
+    <link rel="stylesheet" href="../home/dist/components/button.min.css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>xjsx | animate | count</title>
+    <script src="xjsx.0.0.7.js"></script>
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+      }
+      
+      .xbody {
+        display: block;
+        background-color: #070c1b;
+        color: #ffffff;
+        position: fixed;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+      }
+
+      .fadein {
+        z-index: 1;
+        animation: fadein 1s linear;
+      }
+
+      @keyframes fadein {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+        <!--- javaScript was probably disabled -->
+    <?if: !window?>
+      <h1>Oops, Error</h1>
+      <div class="ui message error">
+      <p>looks like XJSX was not loaded...</p>
+      </div>
+    <?end?>
+    
+    <?on: "counter"?>
+        <?animate: "fadein"?>
+        <h1> <?print: i?> </h1>
+        <button class="ui button" onclick="foo()">count</button>
+    <?end?>
+
+    <script>
+      var i = 1;
+      var animate;
+
+      //render
+      var time = performance.now();
+     XJSX.parseElement(document.body);
+      time = performance.now() - time;
+
+      //animation
+      XJSX.createAnimation("fadein", function (node, resolve) {
+        if (animate) {
+          node.className = "xbody fadein";
+          setTimeout(function () {
+            node.className = "xbody";
+            resolve();
+          }, 1200);
+        } else {
+          node.className = "xbody";
+          animate = true;
+          resolve();
+        }
+      });
+
+      //emit listener
+      XJSX.event.emit("counter");
+
+      //onclick function
+      function foo() {
+        i += 1 + Math.floor(Math.random() * 10);
+        XJSX.event.emit("counter");
+      }
+
+      // time log
+      console.log("Render time: %dms", time);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,76 @@
+
+.x-body {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  padding: inherit;
+  margin: inherit;
+  background: inherit;
+  color: inherit;
+  overflow: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.x-body.slide {
+  pointer-events: none;
+}
+.x-body.slide.out,
+.x-body.slide.in {
+  box-shadow: -5px 0px 20px -12px;
+  z-index: 1;
+}
+
+.x-body.slide.out {
+  transform: translateX(106vw);
+  animation: x-body-slideout 0.5s ease-out;
+}
+.x-body.slide.in {
+  animation: x-body-slidein 0.5s ease-in-out;
+}
+
+.x-body.slide.xout {
+  animation: x-body-xslideout 1.5s linear ;
+}
+.x-body.slide.xin {
+  animation: x-body-xslidein 0.4s linear;
+}
+
+
+
+/*** key frames***/
+@keyframes x-body-slidein {
+  from {
+    transform: translateX(100vw);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes x-body-slideout {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(106vw);
+  }
+}
+
+@keyframes x-body-xslidein {
+  from {
+    transform: translateX(-30vw);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes x-body-xslideout {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-90vw);
+  }
+}

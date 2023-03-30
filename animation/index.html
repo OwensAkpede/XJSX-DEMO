@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <template id="page1">
+      <h1>Page 1</h1>
+      <a onclick="page.back()" class="ui button primary"><i class="chevron left icon"></i>Back</a>
+      <a onclick="page.open('page2')" class="ui button primary">Next<i class="chevron right icon"></i></a>
+    </template>
+    <template id="page2">
+      <h1>Page 2</h1>
+      <a onclick="page.back()" class="ui button primary"><i class="chevron left icon"></i>Back</a>
+      <a onclick="page.open('page3')" class="ui button primary">Next<i class="chevron right icon"></i></a>
+
+    </template>
+    <template id="page3">
+      <h1>Page 3</h1>
+      <a onclick="page.back()" class="ui button primary"><i class="chevron left icon"></i>Back</a>
+      <a onclick="page.reset('page1')" class="ui button primary">Reset<i class="circle right icon"></i></a>
+
+    </template>
+
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="../home/dist/components/reset.min.css" />
+    <link rel="stylesheet" href="../home/dist/components/button.min.css" />
+    <link rel="stylesheet" href="../home/dist/components/message.min.css" />
+
+    <link rel="stylesheet" href="../home/dist/components/icon.min.css" />
+    <link rel="stylesheet" href="animate.css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>xjsx | animate</title>
+    <script src="xjsx.0.0.7.js"></script>
+    <script src="animate.js"></script>
+    <style type="text/css" media="all">
+      body {
+        background: white;
+        color: black;
+        padding: 24px;
+      }
+
+      .x-body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+      
+      h1 {
+        font-size: 60px;
+        font-weight: 300;
+      }
+      .button {
+        
+      }
+    </style>
+    <script>
+      page.open("page1");
+    </script>
+  </head>
+  <body>
+    
+    <!--- javaScript was probably disabled -->
+    <?if: !window?>
+      <h1>Oops, Error</h1>
+      <div class="ui message error">
+      <p>looks like XJSX was not loaded...</p>
+      </div>
+    <?end?>
+    
+    <?on: "page"; event?>
+    <?animate: "slide"?>
+    <div class="page">
+      <?use-template: event.detail?>
+    </div>
+    <?end?>
+  </body>
+</html>
