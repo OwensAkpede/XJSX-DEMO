@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xjsx>
+  <head>
+    <template id=app>
+    <?for-each: data; data?><?break?>
+      <h2>Folders</h2>
+      <div folder class="ui relaxed divided list">
+    <?continue?>
+      <?if: data.type==="folder"?>
+        <div class="item">
+          <i class="large folder middle aligned icon"></i>
+          <div class="content">
+              <a class="header"><?print: data.name?></a>
+              <div class="description">Size: <?print: data.size?>kb</div>
+          </div>
+        </div>
+      <?end?>
+    <?break?>
+      </div>
+      <h2>Files</h2>
+      <div file class="ui relaxed divided list">
+    <?continue?>
+      <?if: data.type==="file"?>
+       <div class="item">
+          <i class="large file middle aligned icon"></i>
+          <div class="content">
+              <a class="header"><?print: data.name?></a>
+              <div class="description">Size: <?print: data.size?>kb</div>
+          </div>
+        </div>
+      <?end?>
+    <?break?>
+    </div>
+    <?end?>
+    </template>
+    <link rel="stylesheet" href="../home/dist/components/reset.min.css" />
+    <link rel="stylesheet" href="../home/dist/components/list.min.css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+     <style type="text/css" media="all">
+      body{padding: 1em;}
+    </style>
+    <script src="../counter/xjsx.0.0.7.js" _src="xjsx.alpha.0.0.4.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" charset="utf-8">
+     var fd=1,
+      fl=1,
+      data=[
+        {type:'folder',name:`Folder (${fd++})`,size:0},
+        {type:'folder',name:`Folder (${fd++})`,size:0},
+        {type:'folder',name:`Folder (${fd++})`,size:0},
+        {type:'folder',name:`Folder (${fd++})`,size:0},
+        {type:'folder',name:`Folder (${fd++})`,size:0},
+
+        {type:'file',name:`file  (${fl++}).txt`,size: Math.floor(Math.random()*100)},
+        {type:'file',name:`file  (${fl++}).txt`,size: Math.floor(Math.random()*100)},
+        {type:'file',name:`file  (${fl++}).txt`,size: Math.floor(Math.random()*100)},
+        {type:'file',name:`file  (${fl++}).txt`,size: Math.floor(Math.random()*100)},
+        {type:'file',name:`file  (${fl++}).txt`,size: Math.floor(Math.random()*100)},
+
+        {type:'folder',name:'last folder',size: 0},
+        
+        ]
+    </script>
+  </head>
+  <body>
+ 
+         <!--- javaScript was probably disabled -->
+    <?if: !window?>
+      <h1>Oops, Error</h1>
+      <div class="ui message error">
+      <p>looks like XJSX was not loaded...</p>
+      </div>
+    <?end?>
+    
+    <?use-template: "app"?>
+    
+    <script type="text/javascript" charset="utf-8">
+     /** manually parsing **/
+      var tm = performance.now();
+      XJSX.parseElement(document);
+      console.log("Done in %dms",performance.now() - tm);
+    </script>
+  </body>
+</html>

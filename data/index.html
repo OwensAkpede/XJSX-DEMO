@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xjsx>
+
+<head>
+    <script src="xjsx.0.0.7.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>xjsx</title>
+</head>
+
+<body>
+    
+        <h1 class=""><?data: "heading"?></h1>
+        <p class=""><?data: "text"?></p>
+      
+ 
+
+    <script type="application/javascript" charset="utf-8">
+      
+      var tm = performance.now();
+      XJSX.parseElement(document);
+      console.log("Done in %dms",performance.now() - tm);
+      
+      XJSX.event.emit(
+        "data/heading",
+        "XJSX.js"
+        );
+        
+      XJSX.event.emit(
+        "data/text",
+        "Happiness makes up in height what it lacks in length."
+      );
+      
+      
+      console.log(document.body.innerText);
+    </script>
+</body>
+
+</html>
