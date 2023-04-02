@@ -80,6 +80,25 @@
       var tm = performance.now();
       XJSX.parseElement(document);
       console.log("Done in %dms",performance.now() - tm);
+      
+      
+      tm = performance.now();
+      data.forEach(function (a,b){
+      //  console.log(a,b)
+      if(a.type==="file"){
+        document.body.innerHTML+=`
+        ${a.name}: ${a.size}kb<br>
+        `;
+      }
+      
+      if(a.type==="folder"){
+       document.body.innerHTML+=`
+        ${a.name}<br>
+        `;
+      }
+      });
+      console.log("Done in %dms",performance.now() - tm);
+
     </script>
   </body>
 </html>

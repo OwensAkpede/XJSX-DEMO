@@ -1,0 +1,22 @@
+body {
+        padding: 1em;
+      }
+      .wrap {
+        max-width: 300px;
+        overflow: hidden;
+      }
+      .wrap img {
+        width: 100%;
+      }
+      @media only screen and (min-width: 600px) {
+        .wrap.ui.message {
+          width: 900px;
+          max-width: 90vw;
+          border-radius: 25px;
+          font-size: 40px;
+        }
+
+        .wrap.ui.message h1.header {
+          xfont-size: 65px;
+        }
+      }

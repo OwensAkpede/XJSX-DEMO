@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+   
+    <link rel="stylesheet" href="../home/dist/components/reset.min.css" />
+    <link rel="stylesheet" href="../home/dist/components/list.min.css" />
+    <link rel="stylesheet" href="../home/dist/components/message.min.css" />
+    <link rel="stylesheet" href="style.css" />
+  
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+    <script src="xjsx.0.0.8.js"></script> 
+    <script src="script.js"></script>
+    
+  </head>
+  <body>
+    
+    <!--- javaScript was probably disabled -->
+    <?if: !window?>
+    <h1>Oops, Error</h1>
+    <div class="ui message error">
+      <p>looks like XJSX was not loaded...</p>
+    </div>
+    <?end?>
+
+    
+    <h1>No delay</h1>
+    
+    <div class="wrap ui message info">
+      <h1 class="header">include</h1>
+      <?include: "tmp.html"?>
+      <p>
+        <img src="../home/assets/images/wireframe/short-paragraph.png" alt="" />
+      </p>
+      <?end?>
+    </div>
+    
+   
+   
+   <h1>With delay</h1>
+   
+   <div class="wrap ui message info">
+      <h1 class="header">include</h1>
+      <?include: "tmp.html"?>
+      <!-- using the delay. see script.js -->
+      <?animate: "delay", 1000?>
+      <p>
+        <img src="../home/assets/images/wireframe/short-paragraph.png" alt="" />
+      </p>
+      <?end?>
+    </div>
+    
+
+  </body>
+</html>
