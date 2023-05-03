@@ -6,7 +6,7 @@
   var KEYWORD = "keyword";
    var MICRO = "micro";
     var MKEYWORD = "micro-keyword";
-   var FUNCTION = "function";
+   var FUNCTION = "function";  
    var FKEYWORD = "function-keyword";
    var METHOD = "method";
    var time = 0;
