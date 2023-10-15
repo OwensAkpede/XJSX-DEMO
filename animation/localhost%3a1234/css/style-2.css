@@ -1,0 +1,128 @@
+body>* {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 400;
+}
+
+wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    height: 100%;
+    width: 100%;
+}
+
+wrapper>* {
+    width: 100%;
+}
+
+article {
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    z-index: 1001;
+    font-weight: 700;
+    text-transform: capitalize;
+    background: white;
+    height: 42px;
+    box-shadow: -3px -1px 6px currentColor;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+article>.content {
+    height: 100%;
+    overflow: auto;
+    /* padding: 1rem; */
+    /* padding-top: 100px; */
+    position: relative;
+    /* padding-top: 0; */
+}
+.pad{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.pad>h1{margin-bottom: 0;}
+article>.content>.cards, .pad{
+    padding: 1rem;
+}
+
+side-bar {
+    display: none;
+    width: 0;
+}
+
+.pgbar {
+    max-width: 100%;
+}
+
+.pg {
+    padding: 24px 0px;
+    margin-bottom: 24px;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    flex-direction: row;
+    /* margin: 20px 0; */
+    align-items: baseline;
+    position: fixed;
+    position: absolute;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    left: 0;
+    /* right: 50%; */
+    z-index: 10;
+    background: #ffffff28;
+    pointer-events: none;
+    backdrop-filter: blur(6px);
+    /* border-bottom-left-radius: 26px;
+    border-bottom-right-radius: 26px; */
+}
+
+.pgp {
+    max-width: 90%;
+    width: 300px;
+}
+
+.pgwp {
+    position: relative;
+    pointer-events: auto;
+    display: flex;
+    max-width: 92%;
+}
+
+.ui.button.icon {
+    margin: 0;
+    border-radius: 0;
+}
+
+.pgwp button {
+    /* position: absolute; */
+    top: 18px;
+}
+
+.pgwp button.right {
+    right: -24px;
+}
+
+.pgwp button.left {
+    left: -21px;
+}
+
+.pgwp button i {
+    /* position: absolute; */
+    left: 50%;
+    right: 50%;
+    /* transform: translate(-50%,-50%); */
+}
+
+.input.loading{
+    pointer-events: none;
+}
